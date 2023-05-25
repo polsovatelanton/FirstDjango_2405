@@ -10,9 +10,15 @@ items = [
 ]
 
 def home(request):
-    text="""<h1>"Изучаем django"</h1>
-         <strong>Ученик</strong>: <i>Проскуряков А.В.</i>"""
-    return HttpResponse(text)
+#   text="""<h1>"Изучаем django"</h1>
+#         <strong>Ученик</strong>: <i>Проскуряков А.В.</i>"""
+#   return HttpResponse(text)
+    context ={
+        "name": 'Антон',
+        "email": 'ap@mst.ru'
+    }
+    return render(request, "index.html", context)
+
 
 def about(request):
     name = 'Anton'
@@ -22,28 +28,34 @@ def about(request):
     return HttpResponse(text)
 
 def item(request,id):
-    if (id > 0) and (id < 6):
-        text = f" <h1> Goodname: {items[id-1]['name']} <br> <a href='../../items/'>BACK</a> </h1>"
-    else:
-        text = f" <h1> There is no goodname with id = {id} </h1>"
-
-    return HttpResponse(text)
-
+#    if (id > 0) and (id < 6):
+#        text = f" <h1> Goodname: {items[id-1]['name']} <br> <a href='../../items/'>BACK</a> </h1>"
+#    else:
+#        text = f" <h1> There is no goodname with id = {id} </h1>"
+#    return HttpResponse(text)
+    context = {
+        "items": items,
+        "num": id
+    }
+    return render(request, "item.html", context)
 
 def allitems(request):
-    newlist=[]
-    for i in range(5):
-        newlist.append(items[i]['name'])
-    text = f""" <h1> All goods:
-            <ol>
-             <li> <a href = '../item/1/'> {newlist[0]}</a> </li>
-             <li> <a href = '../item/2/'> {newlist[1]}</a> </li>
-             <li> <a href = '../item/3/'> {newlist[2]}</a> </li> 
-            </ol>
-            </h1> """
+#    newlist=[]
+#    for i in range(5):
+#        newlist.append(items[i]['name'])
+#    text = f""" <h1> All goods:
+#            <ol>
+#             <li> <a href = '../item/1/'> {newlist[0]}</a> </li>
+#             <li> <a href = '../item/2/'> {newlist[1]}</a> </li>
+#             <li> <a href = '../item/3/'> {newlist[2]}</a> </li>
+#            </ol>
+#            </h1> """
 
-    return HttpResponse(text)
-
+#    return HttpResponse(text)
+    context = {
+        "items": items
+    }
+    return render(request, "items-list.html", context)
 
 
 

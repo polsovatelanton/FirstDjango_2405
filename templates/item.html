@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Товар</title>
+</head>
+<body>
+    {% for item in items %}
+        {% if item.id == num %}
+           {{item.name}} <br>
+        {% endif %}
+    {%endfor%}
+    <a href = '/items/'>BACK</a>
+</body>
+</html>
