@@ -4,3 +4,4 @@
 *.pyc
 _pycache_/
 db.*
+.mypy_cache/

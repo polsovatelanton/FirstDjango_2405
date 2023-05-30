@@ -1,13 +1,15 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound
+from MainApp.models import Item
 
-items = [
-   {"id": 1, "name": "Кроссовки abibas"},
-   {"id": 2, "name": "Куртка кожаная"},
-   {"id": 3, "name": "Coca-cola 1 литр"},
-   {"id": 4, "name": "Картофель фри"},
-   {"id": 5, "name": "Кепка"},
-]
+items = Item.objects.all()
+#items = [
+#   {"id": 1, "name": "Кроссовки abibas"},
+#   {"id": 2, "name": "Куртка кожаная"},
+#   {"id": 3, "name": "Coca-cola 1 литр"},
+#   {"id": 4, "name": "Картофель фри"},
+#   {"id": 5, "name": "Кепка"},
+#]
 
 def home(request):
 #   text="""<h1>"Изучаем django"</h1>
@@ -24,7 +26,7 @@ def about(request):
     name = 'Anton'
     surname = 'Proskuryakov'
     email = 'ap@mst.ru'
-    text=f" <h1> name: {name} <br> surname: {surname} <br> email: {email} </h1> "
+    text=f""" <h1> name: {name} <br> surname: {surname} <br> email: {email} </h1> <a href='/'>На главную</a>"""
     return HttpResponse(text)
 
 def item(request,id):
