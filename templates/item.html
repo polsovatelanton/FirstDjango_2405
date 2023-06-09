@@ -7,7 +7,14 @@
 <body>
     {% for item in items %}
         {% if item.id == num %}
-           {{item.name}} <br>
+            <b>{{item.name}}</b> <br>
+           {{item.brand}} <br>
+           {% if item.count != 0 %}
+                {{item.count}} {{ "штук"}}  <br>
+           {% endif %}
+           {% if item.count == 0 %}
+                {{"Товара нет на складе"}} <br>
+           {% endif %}
         {% endif %}
     {%endfor%}
     <a href = '/items/'>BACK</a>
