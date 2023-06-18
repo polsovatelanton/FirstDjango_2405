@@ -1,10 +1,6 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Товар</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block content %}
     {% for item in items %}
         {% if item.id == num %}
             <b>{{item.name}}</b> <br>
@@ -17,6 +13,5 @@
            {% endif %}
         {% endif %}
     {%endfor%}
-    <a href = '/items/'>BACK</a>
-</body>
-</html>
+    <a href ="{% url 'items-list' %}" >BACK</a>
+{% endblock %}

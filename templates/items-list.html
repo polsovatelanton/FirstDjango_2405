@@ -1,32 +1,35 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+{% extends 'base.html' %}
+
+{% block style %}
+
+{{ block.super }}
 <style>
-    div{
+div{
     float: left;
     width: 100px;
-	height: 100px;
-	margin: 10px 0 0 10px;
-	border: 2px solid #090;
-    }
-    #container1{
+    height: 100px;
+    margin: 10px 0 0 10px;
+    border: 2px solid #090;
+}
+
+#container1{
     width:580px;
     height: 125px;
-    }
-    p{
+}
+
+p{
     margin: 0 0 0 10px;
     width: 100px;
-	height: 100px;
-    }
+    height: 100px;
+}
 </style>
-<body>
+{% endblock %}
+
+{% block content %}
 <h2> Список товаров </h2>
 <div id="container1">
     {% for item in items %}
-        <div><a href = '../item/{{ item.id }}/'>{{ item.name }}</a> <br>
+        <div><a href = "{% url 'item-detail' item.id %}">{{ item.name }}</a> <br>
             {{ item.descript }}
         </div>
     {% endfor%}
@@ -34,5 +37,4 @@
 <p>
     <a href = '../'>На главную</a>
 </p>
-</body>
-</html>
+{% endblock %}

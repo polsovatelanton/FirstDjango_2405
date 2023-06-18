@@ -1,0 +1,18 @@
+div{
+    float: left;
+    width: 100px;
+    height: 100px;
+    margin: 10px 0 0 10px;
+    border: 2px solid #090;
+}
+
+#container1{
+    width:580px;
+    height: 125px;
+}
+
+p{
+    margin: 0 0 0 10px;
+    width: 100px;
+    height: 100px;
+}
